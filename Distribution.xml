@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/home/ctraabe/KiCad/Mikrokopter/Distribution/Distribution.sch</source>
+    <date>Sat 15 Oct 2016 09:04:41 PM JST</date>
+    <tool>Eeschema 4.0.2+dfsg1-stable</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>Distribution.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="SP1">
+      <value>SPEAKER</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x02</footprint>
+      <libsource lib="device" part="SPEAKER"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>56EFFF3F</tstamp>
+    </comp>
+    <comp ref="MC1">
+      <value>MotorCtrl</value>
+      <footprint>Connectors_Molex:Molex_PicoBlade_53047-0510</footprint>
+      <libsource lib="mikrokopter" part="MotorCtrl"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>56F00083</tstamp>
+    </comp>
+    <comp ref="BT1">
+      <value>Battery</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x02</footprint>
+      <libsource lib="device" part="Battery"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5747A1BA</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>I2C</value>
+      <libsource lib="distribution" part="I2C"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58021B50</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="device" part="Battery">
+      <fields>
+        <field name="Reference">BT</field>
+        <field name="Value">Battery</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="distribution" part="I2C">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">I2C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="SDA1" type="output"/>
+        <pin num="2" name="SCL1" type="output"/>
+        <pin num="3" name="SDA2" type="output"/>
+        <pin num="4" name="SCL2" type="output"/>
+        <pin num="5" name="SDA3" type="output"/>
+        <pin num="6" name="SCL3" type="output"/>
+        <pin num="7" name="SDA4" type="output"/>
+        <pin num="8" name="SCL4" type="output"/>
+        <pin num="9" name="SDA5" type="output"/>
+        <pin num="10" name="SCL5" type="output"/>
+        <pin num="11" name="SDA6" type="output"/>
+        <pin num="12" name="SCL6" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="mikrokopter" part="MotorCtrl">
+      <fields>
+        <field name="Reference">MC</field>
+        <field name="Value">MotorCtrl</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="output"/>
+        <pin num="2" name="BUZZER" type="output"/>
+        <pin num="3" name="SDA" type="BiDi"/>
+        <pin num="4" name="SCL" type="output"/>
+        <pin num="5" name="VBAT" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="SPEAKER">
+      <fields>
+        <field name="Reference">SP</field>
+        <field name="Value">SPEAKER</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+        <pin num="2" name="2" type="input"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="device">
+      <uri>/usr/share/kicad/library/device.lib</uri>
+    </library>
+    <library logical="mikrokopter">
+      <uri>/home/ctraabe/KiCad/Mikrokopter/mikrokopter.lib</uri>
+    </library>
+    <library logical="distribution">
+      <uri>/home/ctraabe/KiCad/Mikrokopter/Distribution/distribution.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="Net-(MC1-Pad2)">
+      <node ref="SP1" pin="2"/>
+      <node ref="MC1" pin="2"/>
+    </net>
+    <net code="2" name="Net-(C1-Pad1)">
+      <node ref="MC1" pin="3"/>
+      <node ref="C1" pin="3"/>
+      <node ref="C1" pin="11"/>
+      <node ref="C1" pin="9"/>
+      <node ref="C1" pin="1"/>
+      <node ref="C1" pin="7"/>
+      <node ref="C1" pin="5"/>
+    </net>
+    <net code="3" name="Net-(C1-Pad10)">
+      <node ref="C1" pin="4"/>
+      <node ref="MC1" pin="4"/>
+      <node ref="C1" pin="2"/>
+      <node ref="C1" pin="10"/>
+      <node ref="C1" pin="6"/>
+      <node ref="C1" pin="8"/>
+      <node ref="C1" pin="12"/>
+    </net>
+    <net code="4" name="+BATT">
+      <node ref="MC1" pin="5"/>
+      <node ref="BT1" pin="1"/>
+    </net>
+    <net code="5" name="GND">
+      <node ref="MC1" pin="1"/>
+      <node ref="BT1" pin="2"/>
+      <node ref="SP1" pin="1"/>
+    </net>
+  </nets>
+</export>
